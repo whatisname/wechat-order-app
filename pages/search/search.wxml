@@ -1,0 +1,91 @@
+<!--pages/search/search.wxml-->
+
+<view class="container">
+  <!-- 餐厅定位/搜索框/工具按钮（扫码） -->
+  <view class='flex-wrp top-bar'>
+    <!-- <form class='flex-wrp search-form' bindsubmit="formSubmit"> -->
+
+    <!-- 餐厅选择定位 -->
+    <view class='left'>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{cafeteria_array}}">
+        <view class="picker">
+          <image class='picker-angle' src='../../image/icon_angle_HLW_s.png'></image> {{cafeteria_array[index]}}
+        </view>
+      </picker>
+    </view>
+    <!-- end of left -->
+
+    <!-- 搜索框 -->
+    <view class='flex-wrp search'>
+      <view class='input-wrap'>
+        <input bindblur='setSearchText' class='search-input' placeholder="搜索商家或商品" value='{{search_text}}' />
+      </view>
+
+      <!-- <button bindtap='formSubmit' class='search-button'> -->
+        <image bindtap='formSubmit' class='search-button' src='../../image/icon_search_HLW.png'></image>
+      <!-- </button> -->
+    </view>
+
+    <!-- </form> -->
+  </view>
+  <!-- end of top bar -->
+
+  <!-- 历史搜索 -->
+  <!-- <view class='list'>
+  </view> -->
+
+  <!-- 商家列表（名称+左右滑动展示菜品+查看全部） -->
+  <view class='list' wx:if="{{search_list.length != 0}}">
+
+    <view class='list-title' wx:if="{{search_list.booths.length != undefined && search_list.booths.length != 0}}">搜索结果 商家（{{search_list.booths.length}}）</view>
+    <view class="list-item border-bottom-2-solid" wx:for="{{search_list.booths}}" wx:key="id">
+      <view class='padding-bottom-5 flex-wrp'>
+        <!-- 餐馆名称 -->
+        <navigator class='image-wraper-square' url="/pages/store/store?id={{item.id}}">
+          <image src='http://192.168.1.29:8080/os/res/img/{{item.imgurl}}' class='image'></image>
+        </navigator>
+        <view class='store-detail'>
+          <text class='store-title'>{{item.name}}</text>
+          <text class='store-description'>{{item.canteen}}</text>
+          <text wx:if="{{item.state == 0}}" class='store-status active'>开业中</text>
+          <text wx:else class='store-status inactive'>休息中</text>
+        </view>
+      </view>
+    </view>
+    <!-- end of item -->
+  </view>
+  <!-- end of list -->
+
+
+  <view class='list' wx:if="{{search_list.length != 0}}">
+    <view class='list-title' wx:if="{{search_list.foods.length != undefined && search_list.foods.length != 0}}">外卖（{{search_list.foods.length}}）</view>
+    <view class="list-item border-bottom-2-solid" wx:for="{{search_list.foods}}" wx:key="id">
+      <view class='padding-bottom-5 flex-wrp'>
+        <!-- 外卖名称 -->
+        <navigator class='image-wraper-square' url="/pages/store/store?fid={{item.id}}">
+          <image src='http://192.168.1.29:8080/os/res/img/{{item.imgurl}}' class='image'></image>
+        </navigator>
+        <view class='store-detail'>
+          <text class='store-title'>{{item.name}} ({{item.boothName}})</text>
+          <text class='store-description'>{{item.detail}}</text>
+          <text wx:if="{{item.state == 0}}" class='store-status active'>开业中</text>
+          <text wx:else class='store-status inactive'>休息中</text>
+        </view>
+        <view class='store-price'>
+          <text class='price-tag'>￥{{item.price}}</text>
+          <navigator class='into-store-icon' url="/pages/store/store?fid={{item.id}}"><image src='../../image/icon_shop_HLO.png'></image></navigator>
+        </view>
+      </view>
+    </view>
+    <!-- end of item -->
+    
+  </view>
+  <!-- end of list -->
+
+  <!-- 无搜索内容 -->
+  <view class='list' wx:if="{{search_list.length == 0}}">
+    <view class='list-title'>搜索结果（{{search_list.length}}）</view>
+    <view class='error-text'>呃，你搜索的东西不可描述。。。</view>
+      <image class='error-image' src='../../image/error/noresult5.gif'></image>  
+  </view>
+</view>

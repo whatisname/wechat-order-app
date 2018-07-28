@@ -1,0 +1,13 @@
+
+<view class="back-mask" hidden='{{isShowDialog}}' bindtap='_coClose'>
+  <view class='dialog-panel' wx:if="{{dialogType == 'success'}}">
+    <view class='panel-title-wrp'>
+      <image src='../../image/icon_delete_HLG.png'></image>
+      <view class='panel-title'>{{title}}</view>
+    </view>
+    <view class='panel-content'>{{content}}</view>
+    <view class='button-wrp'>
+      <view class='button-one'>{{closeText}}</view>
+    </view>
+  </view>
+</view>

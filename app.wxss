@@ -1,0 +1,84 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0;
+  box-sizing: border-box;
+  /* background-color: #f3f3f3; */
+  background-color: #EEEEF3;
+  font-family: '微软雅黑';
+}
+
+/* ----- */
+.hover-greyback{
+  background-color: #f3f3f3;
+}
+
+/* ----- */
+.flex-wrp{
+  display:flex;
+}
+.normal-wrp{
+  display: normal;
+}
+
+/* ------------round border image----------------- */
+.image-wraper-round{
+  height: 150rpx;
+  width: 150rpx;
+  background: #f3f3f3;
+  border-radius: 100rpx;
+}
+
+.image-wraper-round .image{
+  height: 130rpx;
+  width: 130rpx;
+  margin: 11rpx;
+  border-radius: 100rpx;
+}
+
+.image-wraper-round .image-title{
+  font-size: 20rpx;
+  text-align: center;
+}
+
+
+/* ------------square border image----------------- */
+.image-wraper-square{
+  height: 135rpx;
+  width: 135rpx;
+  background: #f3f3f3;
+  border-radius: 10rpx;
+}
+
+.image-wraper-square .image{
+  height: 120rpx;
+  width: 120rpx;
+  margin: 9rpx;
+  border-radius: 10rpx;
+}
+
+.image-wraper-square .image-title{
+  font-size: 20rpx;
+  text-align: center;
+}
+
+/* ------------border line----------------- */
+.border-bottom-2-dashed{
+  border-bottom: 2rpx dashed #f3f3f3; 
+}
+
+.border-bottom-2-solid{
+  border-bottom: 2rpx solid #f3f3f3; 
+}
+
+.padding-top-5{
+  padding-top: 5rpx; 
+}
+
+.padding-bottom-5{
+  padding-bottom: 5rpx;
+}

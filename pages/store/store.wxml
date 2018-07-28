@@ -1,0 +1,57 @@
+<!--pages/store/store.wxml-->
+
+<cart id='cart' bindonsubmitevent="onSubmitEventListener">
+</cart>
+
+<view class="container">
+  <view class='store-detail'>
+    <view class='image-wraper-round store-image'>
+      <image src='http://192.168.1.29:8080/os/res/img/{{store_detail.imgurl}}' class='image'></image>
+    </view>
+
+    <view class='store-name'>{{store_detail.name}}</view>
+
+    <view class='store-location'>{{store_detail.canteen}} {{store_detail.window}} {{store_detail.quyu}}</view>
+
+    <text wx:if="{{!store_detail.state}}" class='store-status active'>开业中</text>
+    <text wx:else class='store-status inactive'>休息中</text>
+
+  </view>
+  <!-- end of store-detail -->
+
+  <!-- 商家列表（名称+左右滑动展示菜品+查看全部） -->
+  <view class='list'>
+    <view class='list-title'>订餐</view>
+
+    <view class="list-item padding-bottom-5" wx:for="{{store_detail.foods}}" wx:key="id">
+      <view class='border-bottom-2-solid padding-bottom-5 flex-wrp'>
+        <!-- 餐馆名称 -->
+        <view class='image-wraper-square'>
+          <image src='http://192.168.1.29:8080/os/res/img/{{item.imgurl}}' class='image'></image>
+        </view>
+        <view class='normal-wrp dish-detail-wrp'>
+          <view class='dish-detail'>
+            <text class='dish-title'>{{item.name}}</text>
+          </view>
+          <view class='dish-detail'>
+            <text class='dish-description'>{{item.detail}}</text>
+          </view>
+          <view class='dish-price'>
+            <text class='price-tag'>￥{{item.price}}</text>
+            <!-- <text wx:if="{{item.number != 0}}" class='star'>x</text>
+            <text wx:if="{{item.number != 0}}" class='number'>{{item.number}}</text> -->
+          </view>
+        </view>
+        <view class='flex-wrp dish-operate'>
+          <view class='add-button' hover-class='hover-greyback' bindtap='subNumber' data-bindid="{{item.id}}">-</view>
+          <view class='sub-button' hover-class='hover-greyback' bindtap='addNumber' data-bindid="{{item.id}}">+</view>
+        </view>
+
+      </view>
+    </view>
+    <!-- end of item -->
+  </view>
+  <!-- end of list -->
+
+
+</view>

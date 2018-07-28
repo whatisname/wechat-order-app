@@ -1,0 +1,119 @@
+/* pages/store/store.wxss */
+
+.store-detail {
+  background-color: #fff;
+  width: 100%;
+  padding: 20rpx;
+}
+
+.store-detail .store-image{
+  margin: 0 auto;
+}
+
+.store-detail .store-name{
+  font-size: 35rpx;
+  text-align: center;
+}
+
+.store-detail .store-location{
+  font-size: 25rpx;
+  text-align: center;
+}
+
+.store-detail .store-status{
+  font-size: 25rpx;
+  display: block;
+  width: 90rpx;
+  text-align: center;
+  padding: 2rpx 5rpx;
+  margin: 0 auto;
+  margin-top: 10rpx;
+  border-radius: 5rpx;
+}
+
+.store-detail .store-status.inactive{
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.store-detail .store-status.active{
+  background-color: rgba(255, 185, 1, 1);
+  color: #FFFFFF;
+}
+
+/* -----------list------------- */
+.list{
+  width: 100%;
+  background-color: #FFFFFF;
+  margin-top:15rpx;
+}
+.list .list-title{
+  font-size: 30rpx;
+  padding: 10rpx;
+  background-color: #ffb901;
+  color: #FFFFFF;
+  text-align: center;
+}
+.list .list-item{
+  margin: 0 20rpx;
+}
+.list .list-item .dish-detail-wrp{
+  width: 60%;
+}
+.list .list-item .dish-detail{
+ margin-left: 15rpx;
+ width: 70%;
+}
+.list .list-item .dish-detail .dish-title{
+  font-size: 30rpx;
+}
+.list .list-item .dish-price{
+  margin-top: 10rpx; 
+  margin-left: 15rpx;
+  font-size: 30rpx;
+}
+.list .list-item .dish-price .price-tag{
+  color: #ffb901;
+}
+.list .list-item .dish-price .star{
+  margin-left: 15rpx;
+  font-size: 20rpx;
+
+}
+.list .list-item .dish-price .number{
+  margin-left: 15rpx;
+}
+
+.list .list-item .dish-description{
+  font-size: 25rpx;
+  margin-left: 5rpx;
+  display: block;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.list .list-item .dish-operate{
+  width: 30%;
+  padding: 10rpx;
+  padding-left: 50rpx;
+}
+
+.list .list-item .dish-operate .add-button, 
+.list .list-item .dish-operate .sub-button{
+  font-size: 40rpx;
+  line-height: 40rpx;
+  background-color: #ffb901;
+  padding: 10rpx;
+  text-align: center;
+  margin-top: 36rpx; 
+  width: 40rpx;
+  height: 40rpx;
+  color: #FFFFFF;
+}
+.list .list-item .dish-operate .add-button{
+  border-bottom-left-radius: 10rpx;
+  border-top-left-radius: 10rpx;
+}
+.list .list-item .dish-operate .sub-button{
+  border-bottom-right-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+  border-left: 1rpx solid #FFFFFF;
+}

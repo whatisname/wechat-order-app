@@ -1,0 +1,114 @@
+<import src="../common/head.wxml" />
+<import src="../common/foot.wxml" />
+
+<!-- <cart id='cart' bind:cancelEvent="_cancelEvent" bind:confirmEvent="_confirmEvent"></cart> -->
+<cart id='cart' bindonsubmitevent="onSubmitEventListener"></cart>
+<dialog id='dialog' bindonconfirm="onConfirmListener" bindoncancel="onConfirmListener" bindonclose="onConfirmListener"></dialog>
+
+<navigator url='/pages/address/listAddress/listAddress?sid=1'>
+  <button>查看地址</button>
+</navigator>
+
+<!--index.wxml-->
+<view class="container">
+  <!-- 餐厅定位/搜索框/工具按钮（扫码） -->
+  <view class='flex-wrp top-bar'>
+    <!-- 搜索框 -->
+    <view class='left'>
+      <!-- <image class='search-icon' src='../../image/icon_API.png'></image> -->
+    </view>
+
+    <!-- 餐厅选择定位 -->
+    <view class='search'>
+      <navigator class='search-button' url="/pages/search/search?index=0">
+        <view class='search-text'>搜索商家或商品</view>
+      </navigator>
+    </view>
+
+
+    <!-- 扫码按钮 -->
+    <view class='qrcode'>
+      <image class='QR-icon' src='../../image/icon_QR_HLW.png' bindtap="scanCode"></image>
+    </view>
+  </view>
+  <!-- end of top bar -->
+
+  <!-- 广告（优惠/打折/招聘信息） -->
+  <view class="adv">
+    <swiper indicator-dots="true" autoplay="true" interval="2000" duration="500">
+      <block wx:for="{{adv_name}}" wx:key="*this">
+        <swiper-item>
+          <view class="adv-item">
+            <image src='http://192.168.1.29:8080/os/res/adv/{{item}}' class='adv-img'></image>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <!-- 餐厅分类（根据餐厅分类搜索商家） -->
+  <view class='category'>
+    <view class='flex-wrp '>
+      <navigator class='category-wraper' url="/pages/search/search?index=1">
+        <image src='../../image/store/store1/store1.png' class='category-image'></image>
+        <view class='category-name'>后稷一餐厅一楼</view>
+      </navigator>
+      <navigator class='category-wraper' url="/pages/search/search?index=2">
+        <image src='../../image/store/store1/store2.png' class='category-image'></image>
+        <view class='category-name'>后稷一餐厅二楼</view>
+      </navigator>
+      <navigator class='category-wraper' url="/pages/search/search?index=3">
+        <image src='../../image/store/store1/store3.png' class='category-image'></image>
+        <view class='category-name'>后稷二餐厅</view>
+      </navigator>
+    </view>
+    <view class='flex-wrp '>
+      <navigator class='category-wraper' url="/pages/search/search?index=4">
+        <image src='../../image/store/store1/store4.png' class='category-image'></image>
+        <view class='category-name'>桃李餐厅</view>
+      </navigator>
+      <navigator class='category-wraper' url="/pages/search/search?index=5">
+        <image src='../../image/store/store1/store1.png' class='category-image'></image>
+        <view class='category-name'>昼夜餐厅</view>
+      </navigator>
+      <navigator class='category-wraper' url="/pages/search/search?index=6">
+        <image src='../../image/store/store1/store2.png' class='category-image'></image>
+        <view class='category-name'>后稷三餐厅</view>
+      </navigator>
+    </view>
+  </view>
+  <!-- end of category -->
+
+
+  <!-- 商家列表（名称+左右滑动展示菜品+查看全部） -->
+  <view class='list'>
+    <view class='list-title'>推荐餐厅</view>
+  
+    <view class="list-item border-bottom-2-solid padding-bottom-5" wx:for="{{stores}}" wx:key="id">
+      <view class='border-bottom-2-dashed padding-bottom-5 flex-wrp'>
+        <!-- 餐馆名称 -->
+        <navigator class='image-wraper-square' url="/pages/store/store?id={{item.id}}">
+          <image src='http://192.168.1.29:8080/os/res/img/{{item.imgurl}}' class='image'></image>
+        </navigator>
+        <view class='store-detail'>
+          <text class='store-title'>{{item.name}}</text>
+          <text class='store-description'>（{{item.canteen}} {{item.window}}）</text>
+          <text wx:if="{{item.state == 0}}" class='store-status active'>开业中</text>
+          <text wx:else class='store-status inactive'>休息中</text>
+        </view>
+      </view>
+
+      <view class='flex-wrp padding-top-5 dish-list'>
+        <!-- 菜品列表 -->
+        <navigator class='image-wraper-square dish' url="/pages/store/store?fid={{item.id}}" wx:for="{{item.foods}}" wx:key="id">
+          <image src='http://192.168.1.29:8080/os/res/img/{{item.imgurl}}' class='image'></image>
+          <view class='image-title'>{{item.name}}</view>
+        </navigator>
+
+      </view>
+    </view>
+    <!-- end of item -->
+  </view>
+  <!-- end of list -->
+
+</view>

@@ -1,0 +1,109 @@
+<!--pages/address/address.wxml-->
+
+<!-- ==============对话框=========================== -->
+<dialog id='dialog' bindonconfirm="onConfirmListener" bindoncancel="onConfirmListener" bindonclose="onConfirmListener"></dialog>
+
+<view class='container'>
+  <view class='list'>
+    <view class='list-background-title font-grey flex-wrp'>
+      <view class='width-70'>选择地址</view>
+      <!-- 增加地址 -->
+      <view class='width-10'>
+        <image src='../../../image/icon_add_HLG.png' bindtap='addAddress' data-sid="1"></image>
+      </view>
+      <!-- 编辑地址按钮 -->
+      <view class='width-10'>
+        <image src='../../../image/icon_edit_HLG.png' bindtap='toggleEditIcon'></image>
+      </view>
+      <!-- 删除按钮 -->
+      <view class='width-10'>
+        <image src='../../../image/icon_delete_HLR.png' bindtap='toggleDleteIcon'></image>
+      </view>
+      <view style='width:10rpx; hight: 100%;'></view>
+    </view>
+
+    <view class="list-item" wx:for="{{addressList}}" wx:key="id">
+      <view class='flex-wrp selected-border' wx:if="{{item.isSelected}}">
+        <view class='normal-wrp width-90'>
+          <view class='dish-detail' bindtap='selectAddress' data-bindid="{{item.id}}">
+            <text class='dish-title font-green font-bold' wx:if="{{item.isDefault}}">地址 {{index+1}} (默认地址)</text>
+            <text class='dish-title font-green font-bold' wx:else>地址 {{index+1}}</text>
+          </view>
+          <view class='dish-detail' bindtap='selectAddress' data-bindid="{{item.id}}">
+            <text class='dish-title'>{{item.detail}}</text>
+          </view>
+          <view class='dish-detail' bindtap='selectAddress' data-bindid="{{item.id}}">
+            <text class='dish-description'>宿舍: {{item.dorm}}</text>
+          </view>
+          <view class='dish-detail' bindtap='selectAddress' data-bindid="{{item.id}}">
+            <text class='dish-description'>区域: {{item.quyu}}</text>
+          </view>
+          <view class='dish-detail' bindtap='selectAddress' data-bindid="{{item.id}}">
+            <text class='dish-description' wx:if="{{item.comment}}">评论: {{item.comment}}</text>
+          </view>
+          <view style='height:10rpx; width:100%;'></view>
+
+        </view>
+        <view class='flex-wrp width-10 left-section' catchtap='doNothing' hidden='{{!showEditTool}}'>
+          <!-- edit button -->
+          <view class='edit-button bg-green2' bindtap="onTapEdit" data-bindid="{{item.id}}" data-bindmethod="{{bindMethod}}" wx:if='{{bindMethod == "edit"}}'>
+            <image src='../../../image/icon_edit_HLW.png'></image>
+          </view>
+          <!-- delete button -->
+          <view class='edit-button bg-red' bindtap="onTapEdit" data-bindid="{{item.id}}" data-bindmethod="{{bindMethod}}" wx:if='{{bindMethod == "delete"}}'>
+            <image src='../../../image/icon_delete_HLW.png'></image>
+          </view>
+        </view>
+
+      </view>
+
+
+      <view class='flex-wrp' wx:else>
+        <view class='normal-wrp width-90'>
+          <view class='dish-detail' bindtap='selectAddress' data-bindid="{{item.id}}">
+            <text class='dish-title font-green font-bold' wx:if="{{item.isDefault}}">地址 {{index+1}} (默认地址)</text>
+            <text class='dish-title font-green font-bold' wx:else>地址 {{index+1}}</text>
+          </view>
+          <view class='dish-detail' bindtap='selectAddress' data-bindid="{{item.id}}">
+            <text class='dish-title'>{{item.detail}}</text>
+          </view>
+          <view class='dish-detail' bindtap='selectAddress' data-bindid="{{item.id}}">
+            <text class='dish-description'>宿舍: {{item.dorm}}</text>
+          </view>
+          <view class='dish-detail' bindtap='selectAddress' data-bindid="{{item.id}}">
+            <text class='dish-description'>区域: {{item.quyu}}</text>
+          </view>
+          <view class='dish-detail' bindtap='selectAddress' data-bindid="{{item.id}}">
+            <text class='dish-description' wx:if="{{item.comment}}">评论: {{item.comment}}</text>
+          </view>
+          <view style='height:10rpx; width:100%;'></view>
+
+        </view>
+        <view class='flex-wrp width-10 left-section' catchtap='doNothing' hidden='{{!showEditTool}}'>
+          <!-- edit button -->
+          <view class='edit-button bg-green2' bindtap="onTapEdit" data-bindid="{{item.id}}" data-bindmethod="{{bindMethod}}" wx:if='{{bindMethod == "edit"}}'>
+            <image src='../../../image/icon_edit_HLW.png'></image>
+          </view>
+          <!-- delete button -->
+          <view class='edit-button bg-red' bindtap="onTapEdit" data-bindid="{{item.id}}" data-bindmethod="{{bindMethod}}" wx:if='{{bindMethod == "delete"}}'>
+            <image src='../../../image/icon_delete_HLW.png'></image>
+          </view>
+        </view>
+
+      </view>
+
+
+
+    </view>
+    <!-- end of item -->
+
+    <view style='height:100rpx; width: 100%;'></view>
+
+
+    <view class='bottom-bar' bindtap='submitAddress'>
+      选择地址
+    </view>
+
+  </view>
+  <!-- end of list -->
+</view>

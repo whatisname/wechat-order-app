@@ -1,0 +1,176 @@
+/* pages/component/cart/cart.wxss */
+
+/* ======================订单icon============================= */
+.wrap-icon{
+  width: 125rpx;
+  height: 125rpx;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 100rpx;
+  padding: 5rpx;
+  position:fixed;
+  bottom: 20rpx;
+  right: 20rpx;
+}
+.wrap-icon .icon{
+  width: 115rpx;
+  height: 115rpx;
+  background-color: #ffb901;
+  border-radius: 100rpx;
+  margin: 5rpx;
+}
+.wrap-icon .icon .price,
+.wrap-icon .icon .number{
+  color: #ffffff;
+  text-align: center;
+}
+.wrap-icon .icon .block{
+  height: 25rpx;
+}
+.wrap-icon .icon .price{
+  font-size: 40rpx;
+  line-height: 40rpx;
+}
+.wrap-icon .icon .price .price-icon{
+  font-size: 20rpx;
+}
+.wrap-icon .icon .number{
+  font-size: 30rpx;
+  line-height: 30rpx;
+}
+
+/* ======================工具类============================= */
+.flex-wrp{
+  display:flex;
+}
+.normal-wrp{
+  display: normal;
+}
+
+/* ======================订单列表============================= */
+.back-mask{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* background: rgba(255, 255, 255, 1); */
+  background: rgba(0, 0, 0, 0.5);
+}
+.back-mask .cart-detail{
+  position: absolute;
+  bottom: 0;
+  height: 70%;
+  width: 100%;
+  background: #EEEEF3;
+}
+
+
+/* ======================list============================= */
+.list{
+  width: 100%;
+}
+.list .list-title{
+  font-size: 30rpx;
+  padding: 10rpx;
+  background-color: #ffb901;
+  color: #FFFFFF;
+  text-align: center;
+}
+.scroll-view{
+  height: 100%;
+}
+
+.list .list-item{
+  margin: 0 20rpx;
+  margin-top: 20rpx;
+  background: #FFFFFF;
+  height: 200rpx;
+}
+
+.list .list-item .head-image{
+  height: 200rpx;
+  width: 40%;
+} 
+
+.list .list-item .dish-detail-wrp{
+  width: 60%;
+}
+.list .list-item .dish-detail-wrp .dish-detail{
+ margin-left: 15rpx;
+ width: 70%;
+}
+.list .list-item .dish-detail-wrp .dish-detail .dish-title{
+  font-size: 30rpx;
+}
+.list .list-item .dish-detail-wrp .dish-price{
+  margin-top: 10rpx; 
+  margin-left: 15rpx;
+  font-size: 30rpx;
+}
+.list .list-item .dish-detail-wrp .dish-price .price-tag{
+  color: #ffb901;
+}
+.list .list-item .dish-detail-wrp .dish-price .star{
+  margin-left: 15rpx;
+  font-size: 20rpx;
+}
+.list .list-item .dish-detail-wrp .dish-price .number{
+  margin-left: 15rpx;
+}
+.list .list-item .dish-detail-wrp .dish-description{
+  font-size: 25rpx;
+  margin-left: 5rpx;
+  display: block;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.list .list-item .dish-operate{
+  width: 30%;
+  padding: 10rpx;
+  padding-left: 50rpx;
+}
+.list .list-item .dish-operate .add-button, 
+.list .list-item .dish-operate .sub-button{
+  font-size: 50rpx;
+  line-height: 50rpx;
+  background-color: #ffb901;
+  padding: 10rpx;
+  text-align: center;
+  margin-top: 36rpx; 
+  width: 60rpx;
+  height: 55rpx;
+  color: #FFFFFF;
+}
+.list .list-item .dish-operate .add-button{
+  border-bottom-left-radius: 10rpx;
+  border-top-left-radius: 10rpx;
+}
+.list .list-item .dish-operate .sub-button{
+  border-bottom-right-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+  border-left: 1rpx solid #FFFFFF;
+}
+
+
+/* ======================底部栏======================= */
+.bottom-bar{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 85rpx;
+  font-size: 30rpx;
+  line-height: 85rpx;
+  text-align: center;
+}
+.bottom-bar .price{
+  width: 30%;
+  color: #000000;
+}
+.bottom-bar .deliverfee{
+  width: 30%;
+  color: #000000;
+}
+.bottom-bar .submit{
+  width: 40%;
+  color: #FFFFFF;
+}

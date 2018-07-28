@@ -1,0 +1,171 @@
+/* pages/search/search.wxss */
+
+/* ----- */
+
+.flex-wrp {
+  display: flex;
+}
+
+/* ----- */
+
+.search-form {
+  width: 100%;
+}
+
+.top-bar {
+  width: 100%;
+  background-color: #ffb901;
+  flex-direction: row;
+}
+
+.top-bar .left {
+  width: 25%;
+}
+
+.top-bar .left .picker {
+  text-align: center;
+  font-size: 27rpx;
+  color: #fff;
+  padding-top: 24rpx;
+  padding-left: 18rpx;
+}
+
+.top-bar .left .picker .picker-angle {
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.top-bar .search {
+  width: 75%;
+  padding-right: 30rpx;
+}
+
+.top-bar .search .input-wrap {
+  margin: 0 auto;
+  margin-top: 10rpx;
+  padding: 10rpx 0;
+  width: 75%;
+}
+
+.top-bar .search .search-input {
+  /* text-align: center; */
+  border-bottom: 1rpx solid #fff;
+  padding: 0;
+  color: #fff;
+  font-size: 30rpx;
+  padding-left: 10rpx;
+}
+
+.top-bar .search .search-button {
+  background-color: transparent;
+  width: 50rpx;
+  height: 50rpx;
+  padding: 0;
+  margin-top: 15rpx;
+  margin-left: 10rpx;
+  border: transparent;
+}
+
+/* .top-bar .search .search-button .search-icon {
+  width: 50rpx;
+  height: 50rpx;
+} */
+
+/* -----------搜索结果------------- */
+
+/* -----------list------------- */
+
+.list {
+  width: 100%;
+  background-color: #fff;
+  margin-top: 15rpx;
+}
+
+.list .list-title {
+  font-size: 27rpx;
+  padding: 10rpx;
+  background-color: #ffb901;
+  color: #fff;
+  text-align: center;
+}
+
+.list .list-item {
+  margin: 10rpx 20rpx;
+}
+
+.list .list-item .dish {
+  margin-right: 10rpx;
+}
+
+.list .list-item .store-detail {
+  margin-left: 15rpx;
+  /* margin-top: 10rpx; */
+  width: 60%
+}
+
+.list .list-item .store-detail .store-title {
+  font-size: 27rpx;
+}
+
+.list .list-item .store-description {
+  display: block;
+  font-size: 25rpx;
+  margin-left: 5rpx;
+  color: rgba(0, 0, 0, 0.7)
+}
+
+.list .list-item .store-status {
+  font-size: 25rpx;
+  display: block;
+  width: 90rpx;
+  text-align: center;
+  padding: 2rpx 5rpx;
+  margin-top: 5rpx;
+  border-radius: 5rpx;
+}
+
+.list .list-item .store-status.inactive {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.list .list-item .store-status.active {
+  background-color: rgba(255, 185, 1, 1);
+  color: #fff;
+}
+
+
+.list .list-item .store-price{  
+  width: 40%
+}
+.list .list-item .store-price .price-tag{
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 40rpx;
+  color: #ffb901;
+}
+.list .list-item .store-price .into-store-icon{
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.list .list-item .store-price .into-store-icon image{
+  height: 60rpx;
+  width: 60rpx;
+  display: block;
+  margin: 0 auto;
+}
+
+/* ------------no-result-------------- */
+.list .error-text{
+  font: 30rpx;
+  text-align: center;
+}
+.list .error-image {
+  display: block;
+  width: 300rpx;
+  height: 300rpx;
+  margin: 0 auto;
+  /* margin-top: 20rpx; */
+}

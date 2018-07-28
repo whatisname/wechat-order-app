@@ -1,0 +1,70 @@
+<!--pages/component/cart/cart.wxml-->
+<view class='wrap-icon' hidden="{{!isShowIcon}}" bindtap="expandDetail" style='z-index: 101;'>
+  <view class='icon' style='background-color:{{green}};'>
+    <view class='block'></view>
+    <view class='price'>
+      {{totalPrice}}
+      <text class='price-icon'>￥</text>
+    </view>
+    <view class='number'>{{totalNumber}}</view>
+  </view>
+</view>
+
+<view class='back-mask' hidden='{{!isShowDetail}}' bindtap='hideDetail' style='z-index: 100;'>
+  <view class='cart-detail' catchtap='doNothing'>
+
+    <!-- ==============商品列表=========================== -->
+    <view class='list' hidden='{{!isShowFood}}'>
+      <view class='list-title' style='background-color:{{green}};'>购物车</view>
+
+      <scroll-view class='scroll-view' scroll-y="true" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll">
+        <!-- scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" -->
+        <view class="list-item" wx:for="{{cartList}}" wx:key="id">
+          <view class='flex-wrp'>
+            <!-- 餐馆名称 -->
+            <image src='http://192.168.1.29:8080/os/res/img/{{item.imgurl}}' class='head-image'></image>
+            <view class='normal-wrp dish-detail-wrp'>
+              <view class='dish-detail'>
+                <text class='dish-title'>{{item.name}}</text>
+              </view>
+              <view class='dish-detail'>
+                <text class='dish-description'>{{item.detail}}</text>
+              </view>
+              <view class='dish-price'>
+                <text class='price-tag' style='color:{{green}};'>￥{{item.price}}</text>
+                <text wx:if="{{item.number != 0}}" class='star'>x</text>
+                <text wx:if="{{item.number != 0}}" class='number'>{{item.number}}</text>
+              </view>
+            </view>
+            <view class='flex-wrp dish-operate'>
+              <view class='add-button' style='background-color:{{green}};' hover-class='hover-greyback' bindtap='_sub' data-bindid="{{item.id}}">-</view>
+              <view class='sub-button' style='background-color:{{green}};' hover-class='hover-greyback' bindtap='_add' data-bindid="{{item.id}}">+</view>
+            </view>
+
+          </view>
+        </view>
+        <!-- end of item -->
+      </scroll-view>
+
+      <view class='bottom-bar flex-wrp'>
+        <view class='price' style='background-color:{{white}};'>{{totalPriceText}} ￥{{totalPrice}}</view>
+        <view class='deliverfee' style='background-color:{{white}};'>{{deliverFeeText}} ￥{{deliverFee}}</view>
+        <view class='submit' style='background-color:{{green}};' bindtap='_onSubmit'>{{submitText}}</view>
+      </view>
+
+    </view>
+    <!-- end of list -->
+
+    <!-- ==============选地址=========================== -->
+    <view class='list' hidden='{{!isShowAddress}}'>
+      <view class='list-item'></view>
+    </view>
+
+    <!-- ==============选择支付=========================== -->
+    <view class='list' hidden='{{!isShowPayment}}'>
+      <view class='list-item'></view>
+    </view>
+
+  </view>
+</view>
+
