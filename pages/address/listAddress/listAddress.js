@@ -216,7 +216,7 @@ Page({
             console.error(res.data.message)
             wx.showToast({
               title: res.data.message,
-              image: '../../../image/icon_suzess_HLW.png',
+              image: '../../../image/error_w.png',
               duration: 1500
             })
           }
