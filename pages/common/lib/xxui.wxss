@@ -25,6 +25,9 @@
 
 .bg-white{background-color: #FFFFFF;}
 
+.bg-grey1{background-color: #EFEFEF;}
+
+
 
 /* ======================字体================ */
 .font-green1{color: #D8F5ED;}
@@ -41,5 +44,9 @@
 .font-orange1{color: #ffb901;}
 
 .font-blue1{color: #28558A;}
+.font-blue2{color: #9CC6D7;}
 
 .font-white{color: #FFFFFF;}
+
+.font-grey1{color: #EFEFEF;}
+.font-grey2{color: #6D6D6D;}

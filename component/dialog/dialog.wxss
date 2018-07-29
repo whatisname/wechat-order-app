@@ -8,32 +8,31 @@
   position: fixed;
   top: 0;
   left: 0;
+  background: rgba(0, 0, 0, 0.1);
 }
 .back-mask .dialog-panel{
   margin: 0 auto;
   margin-top: 50%;
   height: 250rpx;
   width: 500rpx;
-  /* border-top-left-radius: 12rpx;
-  border-top-right-radius: 12rpx;
-  border-bottom-left-radius: 12rpx;
-  border-bottom-right-radius: 12rpx; */
   position: relative;
 }
 
 .back-mask .dialog-panel .panel-title-wrp{
-  height: 250rpx;
-  padding-top: 20rpx;
+  height: 100rpx;
+  padding-top: 60rpx;
 }
 .back-mask .dialog-panel .panel-title-wrp image{
   display: block;
-  height: 200rpx;
-  width: 200rpx;
-  margin: 0 auto;
+  height: 100rpx;
+  width: 100rpx;
+  margin-left: 50rpx;
 }
 .back-mask .dialog-panel .panel-title-wrp .panel-title{
-  font-size: 40rpx;
+  font-size: 35rpx;
   text-align: center;
+  margin-left: 50rpx;
+  margin-top: 20rpx;
 }
 .dialog-panel .panel-content{
   font-size: 30rpx;
@@ -42,33 +41,29 @@
 }
 
 .dialog-panel .button-wrp{
-  width: 400rpx;
+  height: 70rpx;
+  width: 100%;
   position: absolute;
   bottom: 0;
   text-align: center;
   font-size: 30rpx;
-  line-height: 60rpx;
+  line-height: 70rpx;
 }
 .dialog-panel .button-wrp .button-left{
-  width: 60%;
+  width: 50%;
   height: 100%;
   margin: 0 auto;
-  color: #FFFFFF;
-  /* border-bottom-left-radius: 15rpx; */
 }
 .dialog-panel .button-wrp .button-right{
-  width: 60%;
+  width: 50%;
   height: 100%;
   margin: 0 auto;
   font-size: 26rpx;
+  color: #FFFFFF;
 }
-.dialog-panel .button-wrp .button-one{
-  width: 60%;
+/* .dialog-panel .button-wrp .button-one{
+  width: 100%;
   height: 100%;
   margin: 0 auto;
   color: #FFFFFF;
-  margin-bottom: 50rpx;
-  
-  /* border-bottom-left-radius: 15rpx;
-  border-bottom-right-radius: 15rpx; */
-}
+} */

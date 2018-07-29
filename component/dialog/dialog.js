@@ -31,7 +31,11 @@ Component({
     content: '',
     // 按钮数量{1,2}
     buttonNumber: 1,
-    //对话框的类型{confirm,info,alert,success,warning}
+    //对话框的类型
+    //info - confirm cancel
+    //alert - confirm cancel
+    //error - confirm cancel
+    //success - confirm cancel
     dialogType: 'success',
 
   },
