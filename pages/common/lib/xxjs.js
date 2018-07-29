@@ -117,3 +117,19 @@ wx.request({
     //失败处理
   },
 });
+
+// toast loading
+wx.showLoading({
+  title: '加载中',
+})
+
+setTimeout(function () {
+  wx.hideLoading()
+}, 2000)
+
+wx.showToast({
+  title: res.data.message,
+  // icon: 'success',
+  image: '../../../image/error_w.png',
+  duration: 1500
+})
