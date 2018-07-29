@@ -12,8 +12,8 @@
 .back-mask .dialog-panel{
   margin: 0 auto;
   margin-top: 50%;
-  height: 450rpx;
-  width: 400rpx;
+  height: 250rpx;
+  width: 500rpx;
   /* border-top-left-radius: 12rpx;
   border-top-right-radius: 12rpx;
   border-bottom-left-radius: 12rpx;
