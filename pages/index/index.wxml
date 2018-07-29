@@ -3,7 +3,7 @@
 
 <!-- <cart id='cart' bind:cancelEvent="_cancelEvent" bind:confirmEvent="_confirmEvent"></cart> -->
 <cart id='cart' bindonsubmitevent="onSubmitEventListener"></cart>
-<dialog id='dialog' bindonconfirm="onConfirmListener" bindoncancel="onConfirmListener" bindonclose="onConfirmListener"></dialog>
+<!-- <dialog id='dialog' bindonconfirm="onConfirmListener" bindoncancel="onConfirmListener" bindonclose="onConfirmListener"></dialog> -->
 
 <navigator url='/pages/address/listAddress/listAddress?sid=1'>
   <button>查看地址</button>

@@ -36,7 +36,7 @@ Component({
     //alert - confirm cancel
     //error - confirm cancel
     //success - confirm cancel
-    dialogType: 'success',
+    dialogType: 'alert',
 
   },
 

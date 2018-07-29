@@ -1,27 +1,31 @@
-
 <view class="back-mask" hidden='{{!isShowDialog}}' bindtap='_onClose' style='z-index: 110;'>
 
 
-  <view class='dialog-panel bg-white' wx:if="{{dialogType == 'success'}}">
+  <view class='dialog-panel bg-white' wx:if="{{dialogType == 'success'}}" catchtap='doNothing'>
     <view class='panel-title-wrp flex-wrp'>
       <image src='../../image/icon_sucess_HLG.png'></image>
-      <view class='panel-title font-green3'>{{title}}</view>
+      <view class='text-wrp normal-wrp'>
+        <view class='panel-title font-green3'>{{title}}</view>
+        <view class='panel-content font-grey2'>{{content}}</view>
+      </view>
     </view>
-    <!-- <view class='panel-content'>{{content}}</view> -->
     <view class='button-wrp flex-wrp'>
-      <view class='button-left bg-grey1 font-grey2'>{{cancelText}}</view>
-      <view class='button-right bg-green3'>{{confirmText}}</view>
+      <view class='button-left bg-grey1 font-grey2' bindtap='_onCancel'>{{cancelText}}</view>
+      <view class='button-right bg-green3' bindtap='_onConfirm'>{{confirmText}}</view>
     </view>
   </view>
 
-  <view class='dialog-panel bg-white' wx:if="{{dialogType == 'deleteConfirm'}}">
+<view class='dialog-panel bg-white' wx:if="{{dialogType == 'alert'}}" catchtap='doNothing'>
     <view class='panel-title-wrp flex-wrp'>
-      <image src='../../image/icon_sucess_HLG.png'></image>
-      <view class='panel-title'>{{title}}</view>
+      <image src='../../image/icon_delete_HLR.png'></image>
+      <view class='text-wrp normal-wrp'>
+        <view class='panel-title font-red2'>{{title}}</view>
+        <view class='panel-content font-grey2'>{{content}}</view>
+      </view>
     </view>
-    <view class='panel-content'>{{content}}</view>
-    <view class='button-wrp'>
-      <view class='button-one bg-green3'>{{closeText}}</view>
+    <view class='button-wrp flex-wrp'>
+      <view class='button-left bg-grey1 font-grey2' bindtap='_onCancel'>{{cancelText}}</view>
+      <view class='button-right bg-red2' bindtap='_onConfirm'>{{confirmText}}</view>
     </view>
   </view>
 

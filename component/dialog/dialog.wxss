@@ -20,23 +20,25 @@
 
 .back-mask .dialog-panel .panel-title-wrp{
   height: 100rpx;
-  padding-top: 60rpx;
+  padding-top: 20rpx;
 }
+
 .back-mask .dialog-panel .panel-title-wrp image{
   display: block;
   height: 100rpx;
   width: 100rpx;
-  margin-left: 50rpx;
+  margin-left: 70rpx;
+  margin-top: 30rpx;
 }
-.back-mask .dialog-panel .panel-title-wrp .panel-title{
+.back-mask .dialog-panel .panel-title-wrp .text-wrp{
+  margin-left: 70rpx;
+}
+.back-mask .dialog-panel .panel-title-wrp .text-wrp .panel-title{
   font-size: 35rpx;
-  text-align: center;
-  margin-left: 50rpx;
-  margin-top: 20rpx;
+  margin-top: 40rpx;
 }
-.dialog-panel .panel-content{
+.back-mask .dialog-panel .panel-title-wrp .text-wrp .panel-content{
   font-size: 30rpx;
-  text-align: center;
   margin-top: 10rpx;
 }
 

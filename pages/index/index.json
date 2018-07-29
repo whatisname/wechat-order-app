@@ -1,6 +1,6 @@
 {
   "usingComponents":{
-    "cart": "/component/cart/cart",
-    "dialog": "/component/dialog/dialog"
+    "cart": "/component/cart/cart"
+    
   }
 }
