@@ -26,7 +26,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    isShowDialog: true, 
+    isShowDialog: false, 
     title: '操作成功',
     content: '',
     // 按钮数量{1,2}
@@ -65,7 +65,7 @@ Component({
       });
     },
     //设置内容并打开
-    open: function (title, content, dialogType) {
+    openWithParam: function (title, content, dialogType) {
       //TODO 决定dialogType和buttonNumber
       this.setData({
         title: title,
@@ -80,7 +80,7 @@ Component({
      */
     //关闭事件
     _onClose: function () {
-      console.log("关闭事件")
+      // console.log("关闭事件")
       // 关闭对话框
       this.close();
       // detail对象，提供给事件监听函数
@@ -94,7 +94,7 @@ Component({
     },
     //确认事件
     _onConfirm: function () {
-      console.log("确认事件")
+      // console.log("确认事件")
       // 关闭对话框
       this.close();
       // detail对象，提供给事件监听函数
@@ -108,7 +108,7 @@ Component({
     },
     //取消事件
     _onCancel: function () {
-      console.log("取消事件")
+      // console.log("取消事件")
       // 关闭对话框
       this.close();
       // detail对象，提供给事件监听函数

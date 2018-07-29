@@ -9,8 +9,9 @@ Page({
     addressList: [],
     selectAId: '0',
     bindMethod: "edit",
-    showEditTool: false
-
+    showEditTool: false,
+    //触发删除时当前选择的id
+    deleteAId: "0",
   },
 
   /**
@@ -20,8 +21,8 @@ Page({
     this.data.sid = options.sid;
     //获得dialog组件
     this.dialog = this.selectComponent("#dialog");
-    this.dialog.setDialog('确认删除？','删除操作不可逆。',"alert");
-    this.dialog.open();
+    this.dialog.setDialog('确认删除？', '', "alert");
+    // this.dialog.open();
   },
 
   /**
@@ -41,7 +42,7 @@ Page({
       },
       success: function(res) {
         if (res.data != undefined && res.data.code == 1) {
-          res.data.data.forEach(function (item, index) {
+          res.data.data.forEach(function(item, index) {
             if (item.isSelected == true) {
               that.data.selectAId = item.id;
             }
@@ -90,15 +91,15 @@ Page({
       url: '/pages/payment/payment?sid=1',
     })
   },
-  selectAddress: function(e){
+  selectAddress: function(e) {
     var id = e.currentTarget.dataset.bindid;
     console.log("选择地址" + id)
     var that = this;
-    this.data.addressList.forEach(function (item, index){
-      if(item.isSelected == true){
+    this.data.addressList.forEach(function(item, index) {
+      if (item.isSelected == true) {
         item.isSelected = false;
       }
-      if(item.id == id){
+      if (item.id == id) {
         that.data.selectAId = id;
         item.isSelected = true;
       }
@@ -108,78 +109,34 @@ Page({
     });
   },
   //==================删除或编辑地址==========================
-  onTapEdit: function(e){
+  onTapEdit: function(e) {
     var opt_id = e.currentTarget.dataset.bindid;
     var method = e.currentTarget.dataset.bindmethod;
     //================编辑地址
-    if(method == "edit"){
+    if (method == "edit") {
       console.log("修改" + opt_id)
       //TODO 发送请求
       wx.navigateTo({
         url: '/pages/address/addAddress/addAddress?op=edit&aid=' + opt_id,
       })
-    //================删除地址
-    }else if(method == "delete"){
-      console.log("删除 aid " + opt_id)
-      //确认框
-      //发送请求
-      var that = this;
-      wx.request({
-        url: 'http://192.168.1.29:8080/os/address/delete',
-        data: {
-          sid: '1',
-          aid: opt_id
-        },
-        header: {
-          "Content-Type": "application/json"
-        },
-        method: 'GET',
-        dataType: 'json',
-        responseType: 'text',
-        success: function (res) {
-          //成功信息
-          if (res.data != undefined) {
-            //res.data.code == 1 -> 成功
-            //res.data.code == 0 -> 失败
-            if (res.data.code == 1) { //成功
-              // 显示成功
-              //TODO
-              // 重新获取list
-              // 刷新页面
-              that.data.addressList.forEach(function(item, index){
-                if (item.id == opt_id){ //删除地址
-                  that.data.addressList.splice(index,1);
-                }
-              });
-              that.setData({
-                addressList: that.data.addressList
-              });
-            } else { //失败
-              //TODO 提示失败信息
-              console.error(res.data.message)
-            }
-          } else {
-            //请求失败
-          }
-        },
-        fail: function (res) {
-          //'信息接受失败或无法与服务器建立连接！' + res.message
-        },
-        complete: function (res) {
-          //失败处理
-        },
-      });
+      //================删除地址
+    } else if (method == "delete") {
+      //设置当前选择要删除的delete aid
+      this.data.deleteAId = opt_id;
+      // console.log("删除 aid " + opt_id)
+      //打开确认框
+      this.dialog.openWithParam('确认删除？', '', "alert");
     }
   },
-  doNothing: function(e){},
-  toggleEditIcon: function (e) {
-    if (this.data.showEditTool == false){
+  doNothing: function(e) {},
+  toggleEditIcon: function(e) {
+    if (this.data.showEditTool == false) {
       this.data.showEditTool = true;
       this.data.bindMethod = "edit";
     } else {
       if (this.data.bindMethod == 'edit') {
         this.data.showEditTool = false;
-      } else if (this.data.bindMethod == 'delete'){
+      } else if (this.data.bindMethod == 'delete') {
         this.data.bindMethod = "edit";
       }
     }
@@ -188,7 +145,7 @@ Page({
       bindMethod: this.data.bindMethod
     });
   },
-  toggleDleteIcon: function (e) {
+  toggleDleteIcon: function(e) {
     if (this.data.showEditTool == false) {
       this.data.showEditTool = true;
       this.data.bindMethod = "delete";
@@ -204,7 +161,7 @@ Page({
       bindMethod: this.data.bindMethod
     });
   },
-  addAddress: function (e) {
+  addAddress: function(e) {
     var sid = e.currentTarget.dataset.sid;
     console.info("增加地址")
     //转到addAddress页面
@@ -212,6 +169,77 @@ Page({
       //TODO add sid
       url: '/pages/address/addAddress/addAddress?sid=1&op=add',
     })
+  },
+  //监听事件
+  onConfirmListener: function(e) {
+    console.log("删除id" + this.data.deleteAId)
+    //发送请求
+    var that = this;
+    wx.request({
+      url: 'http://192.168.1.29:8080/os/address/delete',
+      data: {
+        sid: '1',
+        aid: this.data.deleteAId
+      },
+      header: {
+        "Content-Type": "application/json"
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function(res) {
+        //成功信息
+        if (res.data != undefined) {
+          //res.data.code == 1 -> 成功
+          //res.data.code == 0 -> 失败
+          if (res.data.code == 1) { //成功
+            // 显示成功
+            // that.dialog.openWithParam('删除成功', '', "success");
+            wx.showToast({
+              title: '删除成功',
+              icon: 'success',
+              duration: 1500
+            })
+            //TODO
+            // 重新获取list
+            // 刷新页面
+            that.data.addressList.forEach(function(item, index) {
+              if (item.id == that.data.deleteAId) { //删除地址
+                that.data.addressList.splice(index, 1);
+              }
+            });
+            that.setData({
+              addressList: that.data.addressList
+            });
+          } else { //失败
+            //TODO 提示失败信息
+            console.error(res.data.message)
+            wx.showToast({
+              title: res.data.message,
+              image: '../../../image/icon_suzess_HLW.png',
+              duration: 1500
+            })
+          }
+        } else {
+          //请求失败
+        }
+      },
+      fail: function(res) {
+        //'信息接受失败或无法与服务器建立连接！' + res.message
+      },
+      complete: function(res) {
+        //失败处理
+      },
+    });
+
+  },
+  onCancelListener: function(e) {
+    // do nothing
+    console.log("onCancelListener")
+  },
+  onCloseListener: function(e) {
+    // do nothing
+    console.log("onCloseListener")
   },
 
 })

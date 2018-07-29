@@ -1,11 +1,11 @@
 <!--pages/address/address.wxml-->
 
 <!-- ==============对话框=========================== -->
-<dialog id='dialog' bindonconfirm="onConfirmListener" bindoncancel="onConfirmListener" bindonclose="onConfirmListener"></dialog>
+<dialog id='dialog' bindonconfirmevent="onConfirmListener" bindoncancelevent="onCancelListener" bindoncloseevent="onCloseListener" ></dialog>
 
 <view class='container'>
   <view class='list'>
-    <view class='list-background-title font-grey flex-wrp'>
+    <view class='list-background-title font-grey2 flex-wrp'>
       <view class='width-70'>选择地址</view>
       <!-- 增加地址 -->
       <view class='width-10'>
@@ -50,7 +50,7 @@
             <image src='../../../image/icon_edit_HLW.png'></image>
           </view>
           <!-- delete button -->
-          <view class='edit-button bg-red' bindtap="onTapEdit" data-bindid="{{item.id}}" data-bindmethod="{{bindMethod}}" wx:if='{{bindMethod == "delete"}}'>
+          <view class='edit-button bg-red2' bindtap="onTapEdit" data-bindid="{{item.id}}" data-bindmethod="{{bindMethod}}" wx:if='{{bindMethod == "delete"}}'>
             <image src='../../../image/icon_delete_HLW.png'></image>
           </view>
         </view>
@@ -85,7 +85,7 @@
             <image src='../../../image/icon_edit_HLW.png'></image>
           </view>
           <!-- delete button -->
-          <view class='edit-button bg-red' bindtap="onTapEdit" data-bindid="{{item.id}}" data-bindmethod="{{bindMethod}}" wx:if='{{bindMethod == "delete"}}'>
+          <view class='edit-button bg-red2' bindtap="onTapEdit" data-bindid="{{item.id}}" data-bindmethod="{{bindMethod}}" wx:if='{{bindMethod == "delete"}}'>
             <image src='../../../image/icon_delete_HLW.png'></image>
           </view>
         </view>

@@ -15,9 +15,7 @@ Page({
       url: '../logs/logs'
     })
   },
-  onLoad: function () {
-// console.log('onload')
-    
+  onLoad: function () {    
   },
   onReady: function () {
     //获得cart组件

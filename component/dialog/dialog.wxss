@@ -27,7 +27,7 @@
   display: block;
   height: 100rpx;
   width: 100rpx;
-  margin-left: 70rpx;
+  margin-left: 60rpx;
   margin-top: 30rpx;
 }
 .back-mask .dialog-panel .panel-title-wrp .text-wrp{
@@ -38,7 +38,7 @@
   margin-top: 40rpx;
 }
 .back-mask .dialog-panel .panel-title-wrp .text-wrp .panel-content{
-  font-size: 30rpx;
+  font-size: 25rpx;
   margin-top: 10rpx;
 }
 
